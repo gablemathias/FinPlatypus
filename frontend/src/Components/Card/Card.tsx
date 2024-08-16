@@ -1,9 +1,13 @@
 import React from 'react';
 import "./Card.css";
 
-type Props = {};
+interface Props {
+  companyName: string;
+  stockName: string;
+  price: number;
+};
 
-const Card = (props: Props) => {
+const Card: React.FC<Props> = ({companyName, stockName, price}: Props) : JSX.Element => {
   return (
   <div className='card'>
     <img 
@@ -11,8 +15,8 @@ const Card = (props: Props) => {
     alt="Stocks" 
     />
     <div className="details">
-      <h2>AAPL</h2>
-      <p>$157</p>
+      <h2>{companyName} ({stockName})</h2>
+      <p>${price}</p>
     </div>
     <p className='info'>
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus viverra dui ac tristique tempus. 
